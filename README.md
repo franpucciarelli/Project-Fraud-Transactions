@@ -30,6 +30,14 @@ Trabajamos el proyecto con Python, bajo una configuración de Anaconda Environmen
 
 **Etapa 1: Exploración Inicial del DataSet**
 - Trabajos iniciales con `pandas` para exploración del DataSet.
-- Entendimiento de columnas, filas y qué datos se proveen.
+- Entendimiento de la información que se almacena, cómo se almacena y el estado de la misma.
+- Cosas como entender qué almacena cada columna, tipos de datos, robustez del datasets, balanceo, etc.
+- Escritura de un breve y conciso reporte de estado, donde se detalla todo lo descubierto sobre los datos crudos.
+
+**Etapa 2: Configuración de una Base de Datos**
+- En Docker, configuración y despliegue de una Base de Datos PostgreSQL.
+- Ingesta de Datos: creación de un script que tome el DataSet en `csv` y lo inyecte en la base de datos.
+
+**Etapa 3: ...**
 
 (Under construction...) 

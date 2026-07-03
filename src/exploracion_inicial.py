@@ -9,10 +9,11 @@ En el fondo, busco entender la estructura del negocio.
 """
 
 import pandas as pd 
+from config import RAW_BANK_FRAUD
 
 # %% 
 
-data:pd.DataFrmae = pd.read_csv("C:/Users/franp/OneDrive/Documentos/Repositorios Git - GitHub/Project-Fraud-Transactions/data/raw/bank_fraud.csv")
+data:pd.DataFrmae = pd.read_csv(RAW_BANK_FRAUD)
 
 # Dimensiones del DataSet.
 print(f"El DataSet cuenta con {data.shape[0]} filas y {data.shape[1]} columnas.\n")
@@ -93,7 +94,7 @@ print(f"Cantidad de transacciones fraudulentas: {data['is_fraud'].sum()}")
 print(f"Cantidad de transacciones con fraude clasificado: {data['fraud_type'].count()}", '\n')
 # Ok... pareciera que sí.
 
-# Me interesa saber cuántos tipos de frfaude clasifican.
+# Me interesa saber cuántos tipos de fraude clasifican.
 print(f"Cantidad de tipos de fraude clasificados: {len(data['fraud_type'].unique())}")
 # Ok... es una cantidad super manejable. A ver cuáles son:
 print(f"Tipos de Fraude clasificados: {data['fraud_type'].unique()}", '\n')
