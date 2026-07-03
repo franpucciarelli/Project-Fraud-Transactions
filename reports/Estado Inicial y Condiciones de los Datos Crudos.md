@@ -29,7 +29,7 @@ El *DataSet* cuenta con **1.000.000 filas** y **26 columnas**.
 | failed_attempts | int64 |
 | pin_change_recently | int64 |
 | is_fraud | int64 |
-| rfraud_type | str |
+| fraud_type | str |
 
 ### Entendiendo la Información de Columnas Particulares
 
