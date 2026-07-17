@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/python:3.11
+
+    container_name: compilador_proyecto_python
+
+    volumes:
+      - ..:/workspace_cached
+
+    command: sleep infinity
+
+    networks:
+      - red-proyecto
+  
+  db:
+    image: postgres:15
+
+    container_name: postgres_data_base
+
+    restart: always
+
+    envirnoment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: postgrespass
+      POSTGRES_DB: mi_base_dato
+    
+    ports:
+      - "5432:5432"
+    
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    networks:
+      - res-proyecto 
+  
+  pgadmin:
+    image: dpage/pgadmin4
+
+    container_name: pgadmin_postgres
+
+    restart: always 
+
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: admin@email.com 
+      PGADMIN_DEFAULT_PASSWORD: pgpass 
+
+      ports:
+        - "8080:80"
+      
+      depends_on:
+        - db 
+      
+      network: 
+        - red-proyecto 
+  
+volumes: 
+  postgres_data:
+
+networks: 
+  red-proyecto:
+    driver: bridge
