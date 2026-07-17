@@ -8,15 +8,19 @@ A falta de alguien que me cuente todo esto sobre los datos que vamos a estar tra
 En el fondo, busco entender la estructura del negocio.
 """
 
+# %%
+
 import pandas as pd 
 from config import RAW_BANK_FRAUD
 
+
 # %% 
 
-data:pd.DataFrmae = pd.read_csv(RAW_BANK_FRAUD)
+data:pd.DataFrame = pd.read_csv(RAW_BANK_FRAUD)
 
 # Dimensiones del DataSet.
 print(f"El DataSet cuenta con {data.shape[0]} filas y {data.shape[1]} columnas.\n")
+
 
 # %%
 
@@ -53,6 +57,7 @@ Forma alternativa de hacer la misma operación anterior:
 print(f"Cantidad de transacciones que tuvieron intentos fallidos: {(data["failed_attempts"] != 0).sum()}")
 '''
 
+
 # %%
 '''
 Veamos cómo el DataSet maneja valores Null. 
@@ -75,6 +80,7 @@ clave primaria. Veamoslo por las dudas.
 '''
 print((data['transaction_id'].nunique()) == (len(data)))
 # Bien... tengo la clave primaria identificada, y no tengo dos filas con la misma información.
+
 
 # %% 
 
