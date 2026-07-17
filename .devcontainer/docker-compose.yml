@@ -7,7 +7,7 @@ services:
     container_name: compilador_proyecto_python
 
     volumes:
-      - ..:/workspace_cached
+      - ..:/workspace
 
     command: sleep infinity
 
@@ -21,7 +21,7 @@ services:
 
     restart: always
 
-    envirnoment:
+    environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: postgrespass
       POSTGRES_DB: mi_base_dato
@@ -33,7 +33,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
     networks:
-      - res-proyecto 
+      - red-proyecto 
   
   pgadmin:
     image: dpage/pgadmin4
@@ -46,14 +46,14 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@email.com 
       PGADMIN_DEFAULT_PASSWORD: pgpass 
 
-      ports:
-        - "8080:80"
+    ports:
+      - "8080:80"
       
-      depends_on:
-        - db 
+    depends_on:
+      - "db" 
       
-      network: 
-        - red-proyecto 
+    networks: 
+      - red-proyecto 
   
 volumes: 
   postgres_data:
